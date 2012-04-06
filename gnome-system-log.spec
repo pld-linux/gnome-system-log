@@ -2,7 +2,7 @@ Summary:	System log viewer for GNOME
 Summary(pl.UTF-8):	Przeglądarka logów systemowych dla GNOME
 Name:		gnome-system-log
 Version:	3.4.0
-Release:	1
+Release:	2
 License:	GPL v2
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-system-log/3.4/%{name}-%{version}.tar.xz
@@ -23,8 +23,8 @@ Requires(post,postun):	glib2 >= 1:2.26.0
 Requires(post,postun):	gtk-update-icon-cache
 Requires:	glib2 >= 1:2.32.0
 Requires:	hicolor-icon-theme
-Provides:	gnome-utils-logview = %{version}-%{release}
-Obsoletes:	gnome-utils-logview < 3.3.2-1
+Provides:	gnome-utils-logview = 1:%{version}-%{release}
+Obsoletes:	gnome-utils-logview < 1:3.3.2-1
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -37,7 +37,7 @@ Pozwala na przeglądanie logów systemowych.
 %setup -q
 
 %build
-mkdir m4
+install -d m4
 %{__intltoolize}
 %{__aclocal} -I m4
 %{__autoheader}
