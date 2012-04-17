@@ -1,12 +1,12 @@
 Summary:	System log viewer for GNOME
 Summary(pl.UTF-8):	Przeglądarka logów systemowych dla GNOME
 Name:		gnome-system-log
-Version:	3.4.0
-Release:	2
+Version:	3.4.1
+Release:	1
 License:	GPL v2
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-system-log/3.4/%{name}-%{version}.tar.xz
-# Source0-md5:	c01c49c7bee58f58c865e35135d87021
+# Source0-md5:	5b5958557640d0c69a6358fef3cbeda0
 URL:		http://live.gnome.org/GnomeUtils
 BuildRequires:	autoconf >= 2.63
 BuildRequires:	automake >= 1:1.11
