@@ -1,19 +1,19 @@
 Summary:	System log viewer for GNOME
 Summary(pl.UTF-8):	Przeglądarka logów systemowych dla GNOME
 Name:		gnome-system-log
-Version:	3.6.1
+Version:	3.9.90
 Release:	1
 License:	GPL v2
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-system-log/3.6/%{name}-%{version}.tar.xz
-# Source0-md5:	6615535fe8acf095c7e89b4f01caddc4
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-system-log/3.9/%{name}-%{version}.tar.xz
+# Source0-md5:	d5299de7badbfefce6d7ae26dd031cce
 URL:		http://live.gnome.org/GnomeUtils
 BuildRequires:	autoconf >= 2.63
 BuildRequires:	automake >= 1:1.11
 BuildRequires:	gettext-devel >= 0.17
 BuildRequires:	glib2-devel >= 1:2.32.0
 BuildRequires:	gnome-doc-utils
-BuildRequires:	gtk+3-devel >= 3.4.0
+BuildRequires:	gtk+3-devel >= 3.9.11
 BuildRequires:	intltool >= 0.40.0
 BuildRequires:	pkgconfig >= 1:0.22
 BuildRequires:	rpmbuild(find_lang) >= 1.35
@@ -22,7 +22,7 @@ BuildRequires:	zlib-devel
 Requires(post,postun):	glib2 >= 1:2.26.0
 Requires(post,postun):	gtk-update-icon-cache
 Requires:	glib2 >= 1:2.32.0
-Requires:	gtk+3 >= 3.4.0
+Requires:	gtk+3 >= 3.9.11
 Requires:	hicolor-icon-theme
 Provides:	gnome-utils-logview = 1:%{version}-%{release}
 Obsoletes:	gnome-utils-logview < 1:3.3.2-1
@@ -40,7 +40,7 @@ Pozwala na przeglądanie logów systemowych.
 %build
 install -d m4
 %{__intltoolize}
-%{__aclocal} -I m4 -I libgd
+%{__aclocal} -I m4
 %{__autoheader}
 %{__autoconf}
 %{__automake}
@@ -61,10 +61,12 @@ rm -rf $RPM_BUILD_ROOT
 
 %post
 %update_icon_cache hicolor
+%update_icon_cache HighContrast
 %glib_compile_schemas
 
 %postun
 %update_icon_cache hicolor
+%update_icon_cache HighContrast
 %glib_compile_schemas
 
 %files -f %{name}.lang
@@ -76,3 +78,4 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/GConf/gsettings/logview.convert
 %{_datadir}/glib-2.0/schemas/org.gnome.gnome-system-log.gschema.xml
 %{_mandir}/man1/gnome-system-log.1*
+%{_iconsdir}/HighContrast/*/apps/*.png
